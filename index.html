@@ -3,11 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.11/dist/cdn.min.js"></script>
     <title>Kahveci İbrahim</title>
 </head>
-<body>
-    <h1>Kahveci İbrahim</h1>
+<body style="background-color: black;">
+    <header x-data="{menuitems:[
+        {href: '#sider', title: 'Ana Sayfa'},
+        {href: '#about', title: 'Espresso Lab'},
+        {href: '#menu', title: 'Menü'},
+        {href: '#references', title: 'Bahsetmeler'},
+        {href: '#contact', title: 'İletişim'},
+        ]}" class="absolute z-50 top-0 w-full">
+        <div class="container mx-auto py-4 flex flex-row items-center ">
+            <a href="">
+                <img src="/images/espressolab.png" alt="Espresso Lab logo" class="lg:w-[170px]">
+            </a>
+            <nav class="flex items-center justify-center gap-6 pl-6 ml-6 border-l border-gray-200 text-base">
+                <template x-for="(menuitem, index) in menuitems" :key="index" >
+                    <a x-bind:href="menuitem.href" x-text="menuitem.title" class="font-medium text-white hover:underline"></a>
+                </template>
+            </nav>
+            <div class="ml-auto">
+                <a href="" class="px-4 py-2 text-sm font-semibold text-white bg-red-600 rounded shadow ">Rezervasyon Yapınız</a>
+            </div>
+        </div>
+    </header>
+
 </body>
 </html>
